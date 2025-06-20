@@ -1,0 +1,27 @@
+.list {
+  list-style: none;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #0d1117;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #21262d;
+  color: #ffffff;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.error {
+  color: #f87171;
+  font-weight: bold;
+  margin-top: 10px;
+}

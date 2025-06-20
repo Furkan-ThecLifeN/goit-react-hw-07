@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchContacts } from './redux/contactsOps';
-import ContactList from './components/ContactList';
-import './App.css';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchContacts } from "./redux/contactsOps";
+import ContactForm from "./components/ContactForm/ContactForm";
+import ContactList from "./components/ContactList/ContactList";
+import Filter from "./components/Filter/Filter";
+import "./App.css"
 
 export default function App() {
   const dispatch = useDispatch();
@@ -12,8 +14,10 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Contacts</h1>
+    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <Filter />
       <ContactList />
     </div>
   );

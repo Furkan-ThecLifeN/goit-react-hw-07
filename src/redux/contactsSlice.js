@@ -13,7 +13,6 @@ const contactsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      // Fetch
       .addCase(fetchContacts.pending, state => {
         state.loading = true;
         state.error = null;
@@ -27,7 +26,6 @@ const contactsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Add
       .addCase(addContact.pending, state => {
         state.loading = true;
         state.error = null;
@@ -41,16 +39,13 @@ const contactsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Delete
       .addCase(deleteContact.pending, state => {
         state.loading = true;
         state.error = null;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = state.items.filter(
-          contact => contact.id !== action.payload.id
-        );
+        state.items = state.items.filter(contact => contact.id !== action.payload.id);
       })
       .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
@@ -60,11 +55,15 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
+
 export const selectContacts = state => state.contacts.items;
+export const selectLoading = state => state.contacts.loading;
+export const selectError = state => state.contacts.error;
+
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
-  (contacts, nameFilter) =>
+  (contacts, filter) =>
     contacts.filter(contact =>
-      contact.name.toLowerCase().includes(nameFilter.toLowerCase())
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     )
 );

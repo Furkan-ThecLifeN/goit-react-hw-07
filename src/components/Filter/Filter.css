@@ -1,0 +1,28 @@
+.wrapper {
+  margin: 24px 0;
+  background-color: #0d1117;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 119, 255, 0.25);
+}
+
+.label {
+  color: #58a6ff;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 90%;
+  padding: 10px;
+  background-color: #161b22;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.input:focus {
+  border-color: #1f6feb;
+  outline: none;
+}
